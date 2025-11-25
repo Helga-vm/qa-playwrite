@@ -1,0 +1,33 @@
+{
+  "name": "qa-playwrite",
+  "version": "1.0.0",
+  "description": "test project to study playwright",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npx playwright test",
+    "lint": "npx eslint --fix .",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Helga-vm/qa-playwrite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Helga-vm/qa-playwrite/issues"
+  },
+  "homepage": "https://github.com/Helga-vm/qa-playwrite#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1",
+    "husky": "^9.1.7"
+  },
+  "dependencies": {
+    "@funboxteam/eslint-plugin-no-only-tests": "^5.0.0",
+    "eslint": "^9.39.1",
+    "js": "^0.1.0"
+  }
+}
