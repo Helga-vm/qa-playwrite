@@ -221,7 +221,7 @@ test.describe("Register new user -  valid form submitting", async()=>{
         await passwordInput.fill(userData.password);
         await repeatPasswordInput.fill(userData.repeatPassword);
         await expect(submitButton).not.toBeDisabled({timeout: 6000});
-        await submitButton.click()
+        await submitButton.click();
 
         await expect(page.getByText("Add car",{exact:true})).toBeVisible();
 

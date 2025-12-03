@@ -24,5 +24,5 @@ export default defineConfig([{
         "semi":"error",
         "prefer-const":"error"
 	},
-    ignores: ["node_modules/"]
+    ignores: ["node_modules/","playwright-report/","test-results/"]
 }]);

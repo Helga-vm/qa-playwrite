@@ -29,8 +29,8 @@ export default defineConfig({
     httpCredentials: config.httpCredentials,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: false,
-    trace: 'on-first-retry',
+    headless: true,
+    trace: 'retain-on-failure',
     video: "retain-on-failure",
     screenshot: "on-first-failure"
   },
