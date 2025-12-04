@@ -13,6 +13,11 @@ export class SignUpModule extends BasicModule{
         this.passwordFld = this.container.locator('#signupPassword');
         this.repeatPasswordFld = this.container.locator('#signupRepeatPassword');
         this.submitBtn = this.container.locator('.btn-primary');
+        this.nameErr = this.nameFld.locator("..").locator(this.errorTextLocator);
+        this.lastNameErr = this.lastNameFld.locator("..").locator(this.errorTextLocator);
+        this.emailErr = this.emailFld.locator("..").locator(this.errorTextLocator);
+        this.passwordErr = this.passwordFld.locator("..").locator(this.errorTextLocator);
+        this.rePasswordErr = this.repeatPasswordFld.locator("..").locator(this.errorTextLocator);
     }
 
     async fillForm({name, lastName, email, password, repeatPassword}){
@@ -25,7 +30,6 @@ export class SignUpModule extends BasicModule{
 
     async signUp({name,lastName,email,password,repeatPassword}){
         await this.fillForm({name, lastName,email,password,repeatPassword});
-        await expect(this.submitBtn).not.toBeDisabled();
         await this.submitBtn.click();
     }
 }

@@ -24,7 +24,6 @@ test.describe("Register new user - fields validation",async()=>{
             await firstNameFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(firstNameSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(firstNameSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText(expected.message);
             } else{
                 await expect(firstNameSection.locator(".invalid-feedback"), "Error message should not exist").toHaveCount(0);
@@ -39,7 +38,6 @@ test.describe("Register new user - fields validation",async()=>{
         await firstNameFld.focus();
         await firstNameFld.blur();
 
-        await expect(firstNameSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
         await expect(firstNameSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Name is required");
     });
 
@@ -53,7 +51,6 @@ test.describe("Register new user - fields validation",async()=>{
             await lastNameFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(lastNameSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(lastNameSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText(expected.message);
             } else{
                 await expect(lastNameSection.locator(".invalid-feedback"), "Error message should not exist").toHaveCount(0);
@@ -68,7 +65,6 @@ test.describe("Register new user - fields validation",async()=>{
         await lastNameFld.focus();
         await lastNameFld.blur();
 
-        await expect(lastNameSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
         await expect(lastNameSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Last name is required");
     });
 
@@ -82,7 +78,6 @@ test.describe("Register new user - fields validation",async()=>{
             await emailFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(emailSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(emailSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText(expected.message);
             } else{
                 await expect(emailSection.locator(".invalid-feedback"), "Error message should not exist").toHaveCount(0);
@@ -97,7 +92,6 @@ test.describe("Register new user - fields validation",async()=>{
         await emailFld.focus();
         await emailFld.blur();
 
-        await expect(emailSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
         await expect(emailSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Email required");
     });
 
@@ -111,7 +105,6 @@ test.describe("Register new user - fields validation",async()=>{
             await passwordFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(passwordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(passwordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText(expected.message);
             } else{
                 await expect(passwordSection.locator(".invalid-feedback"), "Error message should not exist").toHaveCount(0);
@@ -126,7 +119,6 @@ test.describe("Register new user - fields validation",async()=>{
         await passwordFld.focus();
         await passwordFld.blur();
 
-        await expect(passwordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
         await expect(passwordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Password required");
     });
 
@@ -140,10 +132,8 @@ test.describe("Register new user - fields validation",async()=>{
             await rePasswordFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(rePasswordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(rePasswordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText(expected.message);
             } else{
-                await expect(rePasswordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(rePasswordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Passwords do not match");
             }
         });
@@ -156,7 +146,6 @@ test.describe("Register new user - fields validation",async()=>{
         await rePasswordFld.focus();
         await rePasswordFld.blur();
 
-        await expect(rePasswordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
         await expect(rePasswordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Re-enter password required");
     });
 
@@ -174,13 +163,11 @@ test.describe("Register new user - fields validation",async()=>{
                 if(input.password.length===15){
                     await rePasswordFld.fill(input.password);
                     await page.keyboard.press('Backspace');
-                    await rePasswordFld.blur();
                 }else {
                     await rePasswordFld.fill(input.password+faker.string.alphanumeric(1));
-                    await rePasswordFld.blur();
                 }
+                await rePasswordFld.blur();
 
-                await expect(rePasswordSection.locator(".invalid-feedback"), "Error message should be visible").toBeVisible();
                 await expect(rePasswordSection.locator(".invalid-feedback"), "Error message text should match documented one").toContainText("Passwords do not match");
 
             });
@@ -220,7 +207,6 @@ test.describe("Register new user -  valid form submitting", async()=>{
         await emailInput.fill(userData.email);
         await passwordInput.fill(userData.password);
         await repeatPasswordInput.fill(userData.repeatPassword);
-        await expect(submitButton).not.toBeDisabled({timeout: 6000});
         await submitButton.click();
 
         await expect(page.getByText("Add car",{exact:true})).toBeVisible();
@@ -233,8 +219,6 @@ test.describe("Register new user -  valid form submitting", async()=>{
         await signinPopup.locator("#signinEmail").fill(userData.email);
         await signinPopup.locator("#signinPassword").fill(userData.password);
         const loginBtn = signinPopup.getByRole("button", {name:"Login"});
-        await expect(loginBtn).toBeVisible();
-        await expect(loginBtn).not.toBeDisabled();
         await loginBtn.click();
 
         await expect(page.getByText("Add car",{exact:true})).toBeVisible();

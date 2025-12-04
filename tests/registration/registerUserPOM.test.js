@@ -23,11 +23,11 @@ test.describe("Register new user - fields validation",async()=>{
             await signUpPopup.nameFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText(expected.message);
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-                await expect(signUpPopup.nameFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+                await expect(signUpPopup.nameErr, "Error message text should match documented one").toContainText(expected.message);
+                await expect(signUpPopup.nameErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+                await expect(signUpPopup.nameFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
             } else{
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message should not exist").toHaveCount(0);
+                await expect(signUpPopup.nameErr, "Error message should not exist").toHaveCount(0);
                 await expect(signUpPopup.nameFld).not.toHaveCSS('border-color','rgb(220, 53, 69)');
             }
         });
@@ -38,9 +38,9 @@ test.describe("Register new user - fields validation",async()=>{
         await signUpPopup.nameFld.focus();
         await signUpPopup.nameFld.blur();
 
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Name is required");
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-        await expect(signUpPopup.nameFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+        await expect(signUpPopup.nameErr, "Error message text should match documented one").toContainText("Name is required");
+        await expect(signUpPopup.nameErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+        await expect(signUpPopup.nameFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
     });
 
     for (const {title,input,expected} of userLastNames){
@@ -51,11 +51,11 @@ test.describe("Register new user - fields validation",async()=>{
             await signUpPopup.lastNameFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText(expected.message);
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-                await expect(signUpPopup.lastNameFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+                await expect(signUpPopup.lastNameErr, "Error message text should match documented one").toContainText(expected.message);
+                await expect(signUpPopup.lastNameErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+                await expect(signUpPopup.lastNameFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
             } else{
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message should not exist").toHaveCount(0);
+                await expect(signUpPopup.lastNameErr, "Error message should not exist").toHaveCount(0);
                 await expect(signUpPopup.lastNameFld).not.toHaveCSS('border-color','rgb(220, 53, 69)');
             }
         });
@@ -66,9 +66,9 @@ test.describe("Register new user - fields validation",async()=>{
         await signUpPopup.lastNameFld.focus();
         await signUpPopup.lastNameFld.blur();
 
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Last name is required");
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-        await expect(signUpPopup.lastNameFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+        await expect(signUpPopup.lastNameErr, "Error message text should match documented one").toContainText("Last name is required");
+        await expect(signUpPopup.lastNameErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+        await expect(signUpPopup.lastNameFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
     });
 
     for (const {title,input,expected} of userEmails){
@@ -78,11 +78,11 @@ test.describe("Register new user - fields validation",async()=>{
             await signUpPopup.emailFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText(expected.message);
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-                await expect(signUpPopup.emailFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+                await expect(signUpPopup.emailErr, "Error message text should match documented one").toContainText(expected.message);
+                await expect(signUpPopup.emailErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+                await expect(signUpPopup.emailFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
             } else{
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message should not exist").toHaveCount(0);
+                await expect(signUpPopup.emailErr, "Error message should not exist").toHaveCount(0);
                 await expect(signUpPopup.emailFld).not.toHaveCSS('border-color','rgb(220, 53, 69)');
             }
         });
@@ -93,9 +93,9 @@ test.describe("Register new user - fields validation",async()=>{
         await signUpPopup.emailFld.focus();
         await signUpPopup.emailFld.blur();
         
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Email required");
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-        await expect(signUpPopup.emailFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+        await expect(signUpPopup.emailErr, "Error message text should match documented one").toContainText("Email required");
+        await expect(signUpPopup.emailErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+        await expect(signUpPopup.emailFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
     });
 
     for (const {title,input,expected} of userPasswords){
@@ -105,11 +105,11 @@ test.describe("Register new user - fields validation",async()=>{
             await signUpPopup.passwordFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText(expected.message);
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-                await expect(signUpPopup.passwordFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+                await expect(signUpPopup.passwordErr, "Error message text should match documented one").toContainText(expected.message);
+                await expect(signUpPopup.passwordErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+                await expect(signUpPopup.passwordFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
             } else{
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message should not exist").toHaveCount(0);
+                await expect(signUpPopup.passwordErr, "Error message should not exist").toHaveCount(0);
                 await expect(signUpPopup.passwordFld).not.toHaveCSS('border-color','rgb(220, 53, 69)');
             }
         });
@@ -120,9 +120,9 @@ test.describe("Register new user - fields validation",async()=>{
         await signUpPopup.passwordFld.focus();
         await signUpPopup.passwordFld.blur();
 
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Password required");
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-        await expect(signUpPopup.passwordFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+        await expect(signUpPopup.passwordErr, "Error message text should match documented one").toContainText("Password required");
+        await expect(signUpPopup.passwordErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+        await expect(signUpPopup.passwordFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
     });
 
     for (const {title,input,expected} of userPasswords){
@@ -132,12 +132,12 @@ test.describe("Register new user - fields validation",async()=>{
             await signUpPopup.repeatPasswordFld.blur();
 
             if (expected.message!=="Valid"){
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText(expected.message);
+                await expect(signUpPopup.rePasswordErr, "Error message text should match documented one").toContainText(expected.message);
             } else{
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Passwords do not match");
+                await expect(signUpPopup.rePasswordErr, "Error message text should match documented one").toContainText("Passwords do not match");
             }
-            await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-            await expect(signUpPopup.repeatPasswordFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+            await expect(signUpPopup.rePasswordErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+            await expect(signUpPopup.repeatPasswordFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
         });
     }
 
@@ -146,9 +146,9 @@ test.describe("Register new user - fields validation",async()=>{
         await signUpPopup.repeatPasswordFld.focus();
         await signUpPopup.repeatPasswordFld.blur();
 
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Re-enter password required");
-        await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-        await expect(signUpPopup.repeatPasswordFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+        await expect(signUpPopup.rePasswordErr, "Error message text should match documented one").toContainText("Re-enter password required");
+        await expect(signUpPopup.rePasswordErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+        await expect(signUpPopup.repeatPasswordFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
     });
 
     for (const {title,input,expected} of userPasswords){
@@ -166,9 +166,9 @@ test.describe("Register new user - fields validation",async()=>{
                 }
                 await signUpPopup.repeatPasswordFld.blur();
 
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator), "Error message text should match documented one").toContainText("Passwords do not match");
-                await expect(signUpPopup.container.locator(signUpPopup.errorTextLocator)).toHaveCSS('color', 'rgb(220, 53, 69)');
-                await expect(signUpPopup.repeatPasswordFld).toHaveCSS('border-color','rgb(220, 53, 69)');
+                await expect(signUpPopup.rePasswordErr, "Error message text should match documented one").toContainText("Passwords do not match");
+                await expect(signUpPopup.rePasswordErr, "Error text should be in red").toHaveCSS('color', 'rgb(220, 53, 69)');
+                await expect(signUpPopup.repeatPasswordFld, "Field with error should be highlighted in red").toHaveCSS('border-color','rgb(220, 53, 69)');
                 await expect(signUpPopup.passwordFld).not.toHaveCSS('border-color','rgb(220, 53, 69)');
             });
         }
@@ -197,11 +197,11 @@ test.describe("Register new user -  valid form submitting", async()=>{
 
     test("Check if user with valid data can be registered",async({page})=>{
         await homePage.signUp(userData);
-        await expect(page.getByText("Add car",{exact:true})).toBeVisible();
+        await expect(garagePage.addCarBtn).toHaveCount(1);
 
         await garagePage.logout();
         
         await homePage.signIn(userData);
-        await expect(page.getByText("Add car",{exact:true})).toBeVisible();
+        await expect(garagePage.addCarBtn).toHaveCount(1);
     });
 });
