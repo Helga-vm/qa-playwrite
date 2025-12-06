@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npx playwright test",
-    "lint": "npx eslint --fix .",
+    "lint": "npx eslint --fix ./tests/",
     "prepare": "husky"
   },
   "repository": {
