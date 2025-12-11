@@ -6,7 +6,7 @@ setup("Login as registered user", async ({page, context}) => {
     const userCredentials = {
         email: process.env.USER_CREDENTIALS_EMAIL ?? "",
         password: process.env.USER_CREDENTIALS_PASSWORD ?? ""
-    }
+    };
 
     const homePage = new HomePage(page);
     await homePage.navigate();
@@ -17,5 +17,5 @@ setup("Login as registered user", async ({page, context}) => {
 
     await context.storageState({
         path: 'state/existingUserStorageState.json'
-    })
-})
+    });
+});

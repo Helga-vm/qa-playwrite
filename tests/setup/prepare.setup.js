@@ -1,6 +1,5 @@
-import {test as setup} from "@playwright/test"
+import {test as setup} from "@playwright/test";
 
 setup("Prepare DB", async () => {
-    console.log("Preparing database...")
-    // throw new Error("DB connection failed")
-})
+    console.log("Preparing database...");
+});

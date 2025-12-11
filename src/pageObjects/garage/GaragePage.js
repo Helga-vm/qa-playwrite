@@ -40,6 +40,6 @@ export class GaragePage extends BasicPage{
     async getCarTileByBrandModel({brand,model}){
         const carTileContainer = this.page.locator(this._carTileSelector, {hasText: brand})
             .filter({hasText: model}).nth(0);
-        return new CarTile(this.page, carTileContainer)
+        return new CarTile(this.page, carTileContainer);
     }
 }

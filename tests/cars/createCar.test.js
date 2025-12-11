@@ -19,8 +19,8 @@ userGarageFixture.describe.only("Create a car", ()=>{
         });
 
         await userGarageFixture.step("Verify created car data", async ()=>{
-            const cretedCarTile = await userGaragePage.getCarTileByBrandModel({brand: 'Audi', model: 'TT'});
-            await expect(cretedCarTile.updateMileageInput, "Car current mileage should be equal to entered one").toHaveValue(carData.mileage);
+            const createdCarTile = await userGaragePage.getCarTileByBrandModel({brand: 'Audi', model: 'TT'});
+            await expect(createdCarTile.updateMileageInput, "Car current mileage should be equal to entered one").toHaveValue(carData.mileage);
         });
     });
 
@@ -30,8 +30,8 @@ userGarageFixture.describe.only("Create a car", ()=>{
         });
 
         await userGarageFixture.step("Verify created car data", async ()=>{
-            const cretedCarTile = await userGaragePage.getCarTileByBrandModel(carData);
-            await expect(cretedCarTile.updateMileageInput, "Car current mileage should be equal to entered one").toHaveValue(carData.mileage);
+            const createdCarTile = await userGaragePage.getCarTileByBrandModel(carData);
+            await expect(createdCarTile.updateMileageInput, "Car current mileage should be equal to entered one").toHaveValue(carData.mileage);
         });
     });
 });
