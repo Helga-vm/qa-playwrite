@@ -29,7 +29,7 @@ export default defineConfig({
     httpCredentials: config.httpCredentials,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: true,
+    headless: false,
     trace: 'retain-on-failure',
     video: "retain-on-failure",
     screenshot: "on-first-failure"
@@ -38,17 +38,25 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: /\/tests\/setup\/.*\.setup\.js/,
+      use: { ...devices['Desktop Chrome'] }
+    },
+    {
       name: 'chromium',
+      dependencies: ['setup'],
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
       name: 'firefox',
+      dependencies: ['setup'],
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
+      dependencies: ['setup'],
       use: { ...devices['Desktop Safari'] },
     },
 

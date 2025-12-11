@@ -1,5 +1,4 @@
-import { BasicModule } from "../BasicModule";
-//import { expect } from "@playwright/test";
+import { BasicModule } from "../BasicModule.js";
 
 export class SignInModule extends BasicModule{
     constructor(page){
