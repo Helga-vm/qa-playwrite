@@ -1,5 +1,4 @@
 import { BasicModule } from "../BasicModule.js";
-import { expect } from "@playwright/test";
 
 export class SignUpModule extends BasicModule{
     errorTextLocator = '.invalid-feedback';

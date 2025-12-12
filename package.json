@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npx playwright test",
+    "test:chromium:ui": "npx playwright test --project=chromium --ui",
     "lint": "npx eslint --fix ./tests/",
     "prepare": "husky"
   },
