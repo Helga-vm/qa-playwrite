@@ -3,7 +3,7 @@ import { userGarageFixture} from "../../src/customFixtures/userGaragePageFixture
 import { faker } from "@faker-js/faker";
 
 
-userGarageFixture.describe.only("Create a car", ()=>{
+userGarageFixture.describe("Create a car", ()=>{
     const carData = {
             brand: 'Porsche',
             model: 'Panamera'

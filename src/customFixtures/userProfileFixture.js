@@ -2,8 +2,9 @@ import {baseCustomFixture as base, expect as baseExpect} from "./baseCustomeFixt
 import {GaragePage} from "../pageObjects/garage/GaragePage.js";
 import ApiClient from "../clients/ApiClient.js";
 import {request as pwRequest} from "@playwright/test";
+import ProfilePage from "../pageObjects/user/ProfilePage.js";
 
-export const userGarageFixture = base.extend({
+export const userProfileFixture = base.extend({
     page: async({browser},use) =>{
         const newCntx = await browser.newContext({
             storageState: 'state/existingUserStorageState.json'
@@ -21,10 +22,10 @@ export const userGarageFixture = base.extend({
         const apiClient = new ApiClient(request);
         await use(apiClient);
     },
-    userGaragePage: async({page}, use) =>{
-        const garagePage = new GaragePage(page);
-        await garagePage.navigate();
-        await use(garagePage);
+    userProfilePage: async({page}, use) =>{
+        const profilePage = new ProfilePage(page);
+        await profilePage.navigate();
+        await use(profilePage);
     }
 });
 
