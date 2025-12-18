@@ -29,7 +29,7 @@ export default defineConfig({
     httpCredentials: config.httpCredentials,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: false,
+    headless: true,
     trace: 'retain-on-failure',
     video: "retain-on-failure",
     screenshot: "on-first-failure"
@@ -59,6 +59,11 @@ export default defineConfig({
       dependencies: ['setup'],
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'api',
+      grep: /@api/,
+      use: { ...devices['Desktop Chrome'] },
+    }
 
     /* Test against mobile viewports. */
     // {

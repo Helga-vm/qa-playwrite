@@ -10,6 +10,7 @@ export class GaragePage extends BasicPage{
         this.myProfileMenu = page.locator("#userNavDropdown");
         this.logoutBtn = this.page.getByRole("button",{name:"Logout"});
         this.addCarBtn = this.page.getByText("Add car",{exact:true});
+        this.profileTab = this.page.getByRole('link', { name: 'Profile' });
     }
 
     async logout(){

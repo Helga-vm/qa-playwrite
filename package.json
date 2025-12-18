@@ -7,6 +7,7 @@
   "scripts": {
     "test": "npx playwright test",
     "test:chromium:ui": "npx playwright test --project=chromium --ui",
+    "test:api": "npx playwright test --project=api",
     "lint": "npx eslint --fix ./tests/",
     "prepare": "husky"
   },
