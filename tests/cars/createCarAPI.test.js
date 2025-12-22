@@ -48,7 +48,7 @@ userGarageFixture.describe("Cars API checks positive", ()=>{
             await expect(retrievedCarBody.data.mileage, "Mileage should eq test data").toEqual(carData.mileage);
             await expect(retrievedCarBody.data.initialMileage, "Initial mileage should eq test data").toEqual(carData.mileage);
 
-        })
+        });
 
     });
 
@@ -90,7 +90,7 @@ userGarageFixture.describe("Cars API checks positive", ()=>{
             await expect(retrievedCarBody.data.mileage, "Mileage should eq test data").toEqual(carData.mileage);
             await expect(retrievedCarBody.data.initialMileage, "Initial mileage should eq test data").toEqual(carData.mileage);
 
-        })
+        });
 
     });
 });

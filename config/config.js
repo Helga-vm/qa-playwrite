@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({path: './.env'});
 
 const config ={
     baseURL: process.env.BASE_URL,
